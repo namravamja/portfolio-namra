@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import InfiniteScroll from "../section1/InfiniteScroll";
+import InfiniteScroll from "./section1/InfiniteScroll";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -59,7 +59,7 @@ const Homepage: React.FC = () => {
       </div>
 
       {/* Section 2 with Infinite Scrolling using Framer Motion */}
-      <div className="w-full h-48 sm:h-56 md:h-64 lg:h-72 flex">
+      <div className="w-full h-52 sm:h-64 md:h-72 lg:h-96 flex">
         <div className="w-full m-2 sm:m-3 md:m-4 p-3 sm:p-4 md:p-6 bg-gradient-to-br from-[#d1fae5]/60 via-[#a7f3d0]/50 to-[#d1fae5]/60 backdrop-blur-md overflow-hidden">
           <div className="flex items-center h-full">
             <InfiniteScroll text={text} />
@@ -81,10 +81,6 @@ const Homepage: React.FC = () => {
             </Link>
           </div>
         </div>
-      </div>
-
-      <div className="w-full h-96 bg-emerald-50">
-        <div></div>
       </div>
     </>
   );
