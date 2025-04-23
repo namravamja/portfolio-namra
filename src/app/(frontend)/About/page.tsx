@@ -1,7 +1,13 @@
 import React from "react";
 
 function About() {
-  return <div>lorem2334</div>;
+  return (
+    <>
+      <div>
+        <div className="w-full h-96 bg-amber-200"></div>
+      </div>
+    </>
+  );
 }
 
 export default About;
