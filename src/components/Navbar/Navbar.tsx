@@ -147,7 +147,7 @@ const Navbar: React.FC = () => {
           <div className="flex md:hidden w-full justify-between items-center">
             <Link href="/" className="flex items-center">
               <h1
-                className={`${playfair.className} text-3xl font-bold tracking-tight`}
+                className={`${playfair.className} text-3xl font-bold limelight-regular tracking-tight`}
               >
                 NAMRA
               </h1>
