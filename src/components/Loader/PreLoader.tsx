@@ -54,16 +54,18 @@ const Preloader = ({ onFinish }: PreloaderProps) => {
           transition={{ duration: 0.8, ease: [0.45, 0, 0.55, 1] }} // Custom easing for smoother motion
           className="bg-[#212121] fixed top-0 left-0 w-full h-screen flex items-center justify-center z-50"
         >
-          <motion.h1
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className={`text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${gradients[index]}`}
-          >
-            {messages[index]}
-          </motion.h1>
+          <div className="text-center px-6 py-8">
+            <motion.h1
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className={`text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${gradients[index]} leading-relaxed`}
+            >
+              {messages[index]}
+            </motion.h1>
+          </div>
         </motion.div>
       ) : null}
     </AnimatePresence>
