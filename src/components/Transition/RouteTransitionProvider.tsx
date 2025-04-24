@@ -1,9 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import RouteTransition from "./RouteTransition";
+
+const routeOrder = [
+  "/",
+  "/About",
+  "/Projects",
+  "/Experience",
+  "/Blog",
+  "/Contact",
+];
 
 export default function RouteTransitionProvider({
   children,
@@ -11,18 +20,31 @@ export default function RouteTransitionProvider({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [showChildren, setShowChildren] = useState(true); // Keep current page visible
+  const [showChildren, setShowChildren] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState<"up" | "down">("up");
+
+  const previousPath = useRef(pathname);
 
   useEffect(() => {
-    // Trigger transition animation on route change
+    const currentIndex = routeOrder.indexOf(pathname);
+    const previousIndex = routeOrder.indexOf(previousPath.current);
+
+    if (currentIndex > previousIndex) {
+      setDirection("up"); // Forward = bottom to top
+    } else {
+      setDirection("down"); // Backward = top to bottom
+    }
+
+    previousPath.current = pathname;
+
     setIsTransitioning(true);
     setShowChildren(false);
 
     const timeout = setTimeout(() => {
-      setIsTransitioning(false); // End transition after 0.4s
-      setShowChildren(true); // Show the new page content
-    }, 400); // Match RouteTransition duration
+      setIsTransitioning(false);
+      setShowChildren(true);
+    }, 400);
 
     return () => clearTimeout(timeout);
   }, [pathname]);
@@ -30,7 +52,9 @@ export default function RouteTransitionProvider({
   return (
     <>
       <AnimatePresence mode="wait">
-        {isTransitioning && <RouteTransition key={pathname} />}
+        {isTransitioning && (
+          <RouteTransition key={pathname} direction={direction} />
+        )}
       </AnimatePresence>
 
       {showChildren && children}
