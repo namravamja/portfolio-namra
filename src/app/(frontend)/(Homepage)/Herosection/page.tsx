@@ -1,11 +1,11 @@
 "use client";
 import type React from "react";
-import InfiniteScroll from "./section1/InfiniteScroll";
+import InfiniteScroll from "../HomepageSection1/InfiniteScroll";
 import Link from "next/link";
 import { useState } from "react";
-import TypewriterEffect from "../TypewriterEffect/page";
+import TypewriterEffect from "../../../../components/TypewriterEffect/page";
 
-const Homepage: React.FC = () => {
+const Herosection: React.FC = () => {
   const text =
     " In my Work, I strive to blend innovation with functionality,delivering high-quality digital experiences that leave an impact";
   const [isProjectButtonHovered, setIsProjectButtonHovered] = useState(false);
@@ -82,4 +82,4 @@ const Homepage: React.FC = () => {
   );
 };
 
-export default Homepage;
+export default Herosection;
