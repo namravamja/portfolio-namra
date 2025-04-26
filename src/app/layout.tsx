@@ -1,4 +1,3 @@
-// app/layout.tsx
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -35,9 +34,11 @@ export default function RootLayout({
       >
         <PreloaderWrapper>
           <RouteTransitionProvider>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
           </RouteTransitionProvider>
         </PreloaderWrapper>
       </body>

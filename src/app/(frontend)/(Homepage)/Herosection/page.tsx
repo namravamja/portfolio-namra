@@ -12,7 +12,7 @@ const Herosection: React.FC = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-br from-[#a18cd1]/70 via-[#fbc2eb]/60 to-[#a18cd1]/70 backdrop-blur-md shadow-xl flex flex-col lg:flex-row h-[650px] w-full">
+      <div className="bg-gradient-to-b from-[#a18cd1]/80 via-[#fbc2eb]/40 to-[#a18cd1]/0 backdrop-blur-md  flex flex-col lg:flex-row h-[650px] w-full">
         {/* Left Section - Large Title */}
         <div className="flex-1 p-8 lg:p-16 flex flex-col justify-center">
           <h1 className="flex flex-col text-6xl lg:text-9xl mb-16 ml-16 font-light tracking-tighter text-black">

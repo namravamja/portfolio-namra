@@ -5,7 +5,7 @@ function AboutSection1() {
   return (
     <>
       <div
-        className="bg-gradient-to-br from-violet-300/100 via-violet-200/40 to-violet-300/80 backdrop-blur-md
+        className="bg-gradient-to-b from-violet-300/100 via-violet-200/100 backdrop-blur-md
         flex flex-col lg:flex-row h-[650px] w-full relative"
       >
         <div className="flex-1 p-8 lg:p-16 flex flex-col justify-center">
@@ -72,7 +72,7 @@ function AboutSection1() {
             rel="noopener noreferrer"
           >
             <button
-              className={`bg-[#b5f2d6] transition-all duration-300 ease-in-out px-4 py-3 font-semibold text-sm border-2 border-black flex items-center gap-2 hover:bg-transparent hover:shadow-[4px_4px_0px_0px_#000000] hover:cursor-pointer`}
+              className={`bg-[#b5f2d6] transition-all duration-300 ease-in-out px-4 py-3 font-semibold text-sm border-2 border-black flex items-center gap-2 hover:bg-violet-200 hover:shadow-[4px_4px_0px_0px_#000000] hover:cursor-pointer`}
             >
               <FaFileAlt className="text-lg" /> My Resume
             </button>

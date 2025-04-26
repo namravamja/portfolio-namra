@@ -31,9 +31,9 @@ export default function RouteTransitionProvider({
     const previousIndex = routeOrder.indexOf(previousPath.current);
 
     if (currentIndex > previousIndex) {
-      setDirection("up"); // Forward = bottom to top
+      setDirection("up");
     } else {
-      setDirection("down"); // Backward = top to bottom
+      setDirection("down");
     }
 
     previousPath.current = pathname;
