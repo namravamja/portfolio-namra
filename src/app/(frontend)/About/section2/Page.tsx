@@ -1,122 +1,119 @@
 "use client";
 
-import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
 
-const AboutSection2 = () => {
-  const { scrollY } = useScroll();
+// Expanded card data with content for the back side
+const cardData: Card[] = [
+  {
+    title: "Skills and Expertise",
+    icon: "mdi:code-tags",
+    content:
+      "Proficient in modern web technologies including React, Next.js, and TypeScript. Experienced in building responsive, accessible, and performant web applications with clean, maintainable code.",
+  },
+  {
+    title: "Results and Impact",
+    icon: "mdi:chart-bar",
+    content:
+      "Delivered projects that increased user engagement by 40% and reduced load times by 60%. Created solutions that directly impacted business goals and improved customer satisfaction metrics.",
+  },
+  {
+    title: "Passion and Approach",
+    icon: "mdi:flame",
+    content:
+      "Driven by a user-centered design philosophy and a commitment to excellence. I approach each project with creativity, attention to detail, and a focus on solving real problems for real people.",
+  },
+];
 
-  const textY = useTransform(scrollY, [0, 400], ["100%", "0%"]);
-
-  const textOpacity = useTransform(scrollY, [0, 150, 300], [0, 1, 0.6]);
-
-  const specialCharsZIndex = useTransform(
-    scrollY,
-    [0, 100, 200, 300, 350, 400],
-    [0, 1, 3, 8, 15, 20]
-  );
-
-  const specialCharsScale = useTransform(
-    scrollY,
-    [0, 200, 350, 400],
-    [1, 1, 1.1, 1.15]
-  );
-
-  const specialCharsRotate = useTransform(scrollY, [200, 400], [0, 5]);
-
+const AboutSection = () => {
   return (
-    <div className="w-full h-96 relative ">
-      <div className="text-9xl text-center mt-3 absolute w-full flex justify-center">
-        <motion.span
-          style={{
-            y: textY,
-            opacity: textOpacity,
-          }}
-        >
-          S
-        </motion.span>
+    <div className="mt-20 px-4 md:px-8 lg:px-12">
+      <div className="flex h-[36rem] w-full  ">
+        {/* Title section */}
+        <div className="flex flex-col">
+          <p className="text-6xl md:text-7xl lg:text-8xl font-bold text-black/10 leading-none">
+            Why
+          </p>
+          <p className="text-7xl md:text-8xl lg:text-9xl font-bold text-violet-900/70 leading-none">
+            Me??
+          </p>
+          <p className="mt-6 text-gray-600 max-w-md">
+            I bring a unique combination of technical expertise, creative
+            thinking, and business understanding to every project.
+          </p>
+        </div>
 
-        <motion.span
-          style={{
-            y: textY,
-            zIndex: specialCharsZIndex,
-            opacity: textOpacity,
-            position: "relative",
-            scale: specialCharsScale,
-            rotate: specialCharsRotate,
-            transformOrigin: "center",
-          }}
-        >
-          k
-        </motion.span>
-
-        <motion.span
-          style={{
-            y: textY,
-            opacity: textOpacity,
-          }}
-        >
-          ill
-        </motion.span>
-
-        <motion.span
-          style={{
-            y: textY,
-            opacity: textOpacity,
-          }}
-        >
-          &nbsp;
-        </motion.span>
-
-        <motion.span
-          style={{
-            y: textY,
-            opacity: textOpacity,
-            zIndex: specialCharsZIndex,
-            position: "relative",
-            scale: specialCharsScale,
-            rotate: specialCharsRotate,
-            transformOrigin: "center",
-          }}
-        >
-          S
-        </motion.span>
-
-        <motion.span
-          style={{
-            y: textY,
-            opacity: textOpacity,
-          }}
-        >
-          tack
-        </motion.span>
-      </div>
-
-      <div className="backdrop-blur-md w-full absolute top-26 z-10">
-        <div className="grid grid-rows-3 grid-cols-12 gap-4 px-10">
-          <div className="col-span-3 h-24 bg-gray-300"></div>
-          <div className="col-start-4 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-5 h-24 bg-gray-300"></div>
-          <div className="col-span-3 col-start-7 h-24 bg-gray-300"></div>
-          <div className="col-start-10 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-11 h-24 bg-gray-300"></div>
-          <div className="col-span-2 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-span-3 col-start-3 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-6 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-8 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-start-12 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-10 row-start-2 h-24 bg-gray-300"></div>
-          <div className="col-span-3 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-start-4 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-start-5 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-start-6 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-span-2 col-start-7 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-span-3 col-start-9 row-start-3 h-24 bg-gray-300"></div>
-          <div className="col-start-12 row-start-3 h-24 bg-gray-300"></div>
+        {/* Cards section */}
+        <div className="flex-1 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {cardData.map((card, index) => (
+              <FlipCard key={index} card={card} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AboutSection2;
+interface Card {
+  title: string;
+  icon: string;
+  content: string;
+}
+
+const FlipCard = ({ card, index }: { card: Card; index: number }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
+  return (
+    <div
+      className="h-80 md:h-96 w-full perspective-1000 cursor-pointer"
+      onMouseEnter={handleFlip}
+      onMouseLeave={handleFlip}
+      onTouchStart={handleFlip}
+    >
+      <motion.div
+        className="relative w-full h-full"
+        initial={false}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Front of card */}
+        <div
+          className={`absolute w-full h-full backface-hidden rounded-xl bg-white border border-violet-200 p-6 flex flex-col items-center justify-center shadow-lg transition-all duration-300 ${
+            isFlipped ? "opacity-0" : "opacity-100"
+          }`}
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <div className="text-violet-900 mb-4">
+            <Icon icon={card.icon} width="40" height="40" />
+          </div>
+          <h3 className="text-xl font-bold text-center text-gray-800">
+            {card.title}
+          </h3>
+          <div className="mt-4 w-16 h-1 bg-violet-900 rounded-full"></div>
+          <div className="mt-4 text-sm text-gray-500 text-center">
+            Hover to learn more
+          </div>
+        </div>
+
+        {/* Back of card */}
+        <div
+          className="absolute w-full h-full backface-hidden rounded-xl bg-gradient-to-br from-violet-900/70 to-violet-900/70 p-6 flex flex-col items-center justify-center shadow-lg text-white"
+          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+        >
+          <h3 className="text-xl font-bold mb-4 text-center">{card.title}</h3>
+          <p className="text-center text-white/90">{card.content}</p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default AboutSection;
