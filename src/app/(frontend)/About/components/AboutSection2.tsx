@@ -32,10 +32,10 @@ const AboutSection2 = () => {
 
   return (
     <motion.div ref={sectionRef} className="mt-20 px-4 md:px-8 lg:px-12">
-      <div className="flex h-[36rem] w-full">
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[36rem] w-full">
         {/* Title section */}
         <motion.div
-          className="flex flex-col"
+          className="flex flex-col mb-12 lg:mb-0"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -58,7 +58,7 @@ const AboutSection2 = () => {
         </motion.div>
 
         {/* Cards section */}
-        <div className="flex-1 mt-20">
+        <div className="flex-1 mt-0 lg:mt-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {cardData.map((card, index) => (
               <FlipCard
@@ -96,9 +96,10 @@ const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
 
   return (
     <motion.div
-      className="h-80 md:h-96 w-full perspective-1000 cursor-pointer"
-      onMouseEnter={handleFlip}
-      onMouseLeave={handleFlip}
+      className="h-72 sm:h-80 md:h-96 w-full perspective-1000 cursor-pointer"
+      onClick={handleFlip}
+      onMouseEnter={() => window.innerWidth > 768 && handleFlip()}
+      onMouseLeave={() => window.innerWidth > 768 && handleFlip()}
       onTouchStart={handleFlip}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -117,7 +118,7 @@ const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
       >
         {/* Front of card */}
         <div
-          className={`absolute w-full h-full backface-hidden rounded-xl bg-white border border-violet-200 p-6 flex flex-col items-center justify-center shadow-lg transition-all duration-300 ${
+          className={`absolute w-full h-full backface-hidden rounded-xl bg-white border border-violet-200 p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg transition-all duration-300 ${
             isFlipped ? "opacity-0" : "opacity-100"
           }`}
           style={{ backfaceVisibility: "hidden" }}
@@ -127,9 +128,14 @@ const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
             whileHover={{ rotate: 360, scale: 1.2 }}
             transition={{ duration: 0.5 }}
           >
-            <Icon icon={card.icon} width="40" height="40" />
+            <Icon
+              icon={card.icon}
+              width="40"
+              height="40"
+              className="w-8 h-8 md:w-10 md:h-10"
+            />
           </motion.div>
-          <h3 className="text-xl font-bold text-center text-gray-800">
+          <h3 className="text-lg md:text-xl font-bold text-center text-gray-800">
             {card.title}
           </h3>
           <motion.div
@@ -139,17 +145,22 @@ const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
             transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
           ></motion.div>
           <div className="mt-4 text-sm text-gray-500 text-center">
-            Hover to learn more
+            <span className="hidden md:inline">Hover</span>
+            <span className="md:hidden">Tap</span> to learn more
           </div>
         </div>
 
         {/* Back of card */}
         <div
-          className="absolute w-full h-full backface-hidden rounded-xl bg-gradient-to-br from-violet-900/70 to-violet-900/70 p-6 flex flex-col items-center justify-center shadow-lg text-white"
+          className="absolute w-full h-full backface-hidden rounded-xl bg-gradient-to-br from-violet-900/70 to-violet-900/70 p-4 sm:p-6 flex flex-col items-center justify-center shadow-lg text-white"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <h3 className="text-xl font-bold mb-4 text-center">{card.title}</h3>
-          <p className="text-center text-white/90">{card.content}</p>
+          <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-center">
+            {card.title}
+          </h3>
+          <p className="text-sm md:text-base text-center text-white/90">
+            {card.content}
+          </p>
         </div>
       </motion.div>
     </motion.div>

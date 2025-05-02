@@ -40,10 +40,14 @@ const AboutSection3 = () => {
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
 
   return (
-    <motion.div ref={sectionRef} className="flex mt-5 gap-10 h-[36rem] w-full">
-      <div className="flex w-96">
+    <motion.div
+      ref={sectionRef}
+      className="flex flex-col lg:flex-row mt-5 gap-5 lg:gap-10 h-auto lg:h-[36rem] w-full px-4 md:px-8 lg:px-12"
+    >
+      {/* Title section */}
+      <div className="flex w-full lg:w-96 justify-center lg:justify-start mb-6 lg:mb-0">
         <motion.div
-          className="flex flex-col ml-10"
+          className="flex flex-col items-center lg:items-start lg:ml-10"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -56,12 +60,14 @@ const AboutSection3 = () => {
           </p>
         </motion.div>
       </div>
-      <div className="flex-1 w-full mt-5 mr-10 p-6">
-        <div className="grid grid-cols-7 grid-rows-4 gap-4 h-full w-full">
+
+      {/* Skills grid */}
+      <div className="flex-1 w-full p-2 md:p-4 lg:p-6 lg:mt-5 lg:mr-10">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-2 md:gap-3 lg:gap-4 h-full w-full">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center justify-center border border-gray-300 rounded-md shadow-sm hover:shadow-lg hover:border-violet-300 transition-all duration-300 bg-white p-2 cursor-pointer group"
+              className="flex flex-col items-center justify-center border border-gray-300 rounded-md shadow-sm hover:shadow-lg hover:border-violet-300 transition-all duration-300 bg-white p-1 md:p-2 cursor-pointer group"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
@@ -78,14 +84,17 @@ const AboutSection3 = () => {
               }}
             >
               <motion.div
-                className="flex items-center justify-center h-10"
+                className="flex items-center justify-center h-8 md:h-10"
                 initial={{ rotateY: 0 }}
                 whileHover={{ rotateY: 180 }}
                 transition={{ duration: 0.6 }}
               >
-                <Icon icon={tech.icon} width="40" height="40" />
+                <Icon
+                  icon={tech.icon}
+                  className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                />
               </motion.div>
-              <motion.div className="mt-2 text-xs font-medium text-gray-500 group-hover:text-violet-700 transition-colors duration-300">
+              <motion.div className="mt-1 md:mt-2 text-[0.6rem] sm:text-xs font-medium text-gray-500 group-hover:text-violet-700 transition-colors duration-300 text-center truncate w-full px-1">
                 {tech.name}
               </motion.div>
             </motion.div>

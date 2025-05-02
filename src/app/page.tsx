@@ -5,6 +5,5 @@ export default function Home() {
     <>
       <Homepage />
     </>
-    // <div className="min-h-screen flex flex-col items-center justify-center"></div>
   );
 }

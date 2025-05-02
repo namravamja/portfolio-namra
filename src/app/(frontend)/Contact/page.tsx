@@ -1,8 +1,8 @@
 import { generatePageMetadata } from "@/utils/metadata";
-import React from "react";
+import ContactPage from "./components/ContactPage";
 
 const Contact = () => {
-  return <div>Contact</div>;
+  return <ContactPage />;
 };
 
 export const metadata = generatePageMetadata("Contact");

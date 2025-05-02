@@ -62,7 +62,7 @@ const NavLink: React.FC<NavLinkProps> = ({
         onMouseLeave={() => {
           setIsHovered(false);
         }}
-        className={`relative z-10 block cursor-pointer px-3 py-1.5 text-sm font-semibold md:px-4 md:py-2 
+        className={`relative z-10 block cursor-pointer px-3 py-1.5 text-sm font-semibold lg:px-4 lg:py-2 
         ${isActive ? "font-bold" : ""}
         ${isMobile ? "w-full py-4 text-base" : ""}
         `}
@@ -142,9 +142,9 @@ const Navbar: React.FC = () => {
     <>
       {/* Fixed navbar container */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-3 md:h-18 flex flex-col md:flex-row md:items-center md:justify-between">
-          {/* Mobile menu button and logo - only visible on small screens */}
-          <div className="flex md:hidden w-full justify-between items-center">
+        <div className="container mx-auto px-4 py-3 lg:h-18 flex flex-col lg:flex-row lg:items-center lg:justify-between">
+          {/* Mobile/Medium menu button and logo - visible on small and medium screens */}
+          <div className="flex lg:hidden w-full justify-between items-center">
             <Link href="/" className="flex items-center">
               <h1
                 className={`${playfair.className} text-3xl font-bold limelight-regular tracking-tight`}
@@ -162,8 +162,8 @@ const Navbar: React.FC = () => {
             </motion.button>
           </div>
 
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center justify-between w-full">
+          {/* Desktop navigation - only visible on large screens */}
+          <div className="hidden lg:flex items-center justify-between w-full">
             <Link href="/" className="mr-6">
               <h1
                 className={`${playfair.className} text-4xl font-bold tracking-tight`}
@@ -220,7 +220,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile navigation menu - slide from right */}
+      {/* Mobile/Medium navigation menu - slide from right */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -228,7 +228,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           >
             <motion.div
@@ -304,7 +304,7 @@ const Navbar: React.FC = () => {
       </AnimatePresence>
 
       {/* Spacer to prevent content from being hidden under fixed navbar */}
-      <div className="h-16 md:h-18"></div>
+      <div className="h-16 lg:h-18"></div>
     </>
   );
 };

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-function AboutSection4() {
+function EducationTimeline() {
   const educationItems = [
     {
       year: "2019-2020",
@@ -67,26 +67,26 @@ function AboutSection4() {
     <>
       <div
         ref={sectionRef}
-        className="flex mt-20 gap-10 h-full min-h-[36rem] w-full"
+        className="flex mt-20 gap-10 h-full min-h-screen w-full flex-col md:flex-row"
       >
-        <div className="flex w-96">
+        <div className="flex w-full md:w-96">
           <motion.div
-            className="flex flex-col ml-10"
+            className="flex flex-col ml-4 md:ml-10"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-6xl md:text-7xl lg:text-8xl font-bold text-black/10 leading-none">
+            <p className="text-5xl md:text-7xl lg:text-8xl font-bold text-black/10 leading-none">
               What i
             </p>
-            <p className="text-7xl md:text-8xl lg:text-9xl font-bold text-violet-900/70 leading-none">
+            <p className="text-6xl md:text-8xl lg:text-9xl font-bold text-violet-900/70 leading-none">
               Study??
             </p>
           </motion.div>
         </div>
         <div className="flex-1 w-full mt-10">
           <div className="relative h-full">
-            <div className="space-y-8 w-full md:w-[40rem] relative py-4 ml-5 md:ml-60">
+            <div className="space-y-8 w-full md:w-full lg:w-3/4 relative py-4 ml-5 md:ml-20 lg:ml-60">
               <motion.div
                 className="absolute left-0 top-6 w-0.5 bg-violet-800 rounded-full origin-top"
                 initial={{ height: 0 }}
@@ -153,4 +153,4 @@ function AboutSection4() {
   );
 }
 
-export default AboutSection4;
+export default EducationTimeline;
