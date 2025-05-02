@@ -1,4 +1,4 @@
-import TypewriterEffect from "../../../../components/TypewriterEffect/page";
+import TypewriterEffect from "../../../../components/TypewriterEffect";
 import { FaFileAlt } from "react-icons/fa";
 
 function AboutSection1() {

@@ -1,8 +1,9 @@
 import React from "react";
-import AboutSection1 from "./section1/page";
-import AboutSection2 from "./section2/page";
-import AboutSection3 from "./section3/page";
-import AboutSection4 from "./section4/page";
+import AboutSection1 from "./components/AboutSection1";
+import AboutSection2 from "./components/AboutSection2";
+import AboutSection3 from "./components/AboutSection3";
+import AboutSection4 from "./components/AboutSection4";
+import { generatePageMetadata } from "@/utils/metadata";
 
 function About() {
   return (
@@ -15,4 +16,8 @@ function About() {
   );
 }
 
+export const metadata = generatePageMetadata(
+  "About",
+  "Learn more about Namra Vamja."
+);
 export default About;

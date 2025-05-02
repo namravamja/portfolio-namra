@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Icon } from "@iconify/react";
 
 // Expanded card data with content for the back side
@@ -26,34 +26,52 @@ const cardData: Card[] = [
   },
 ];
 
-const AboutSection = () => {
+const AboutSection2 = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+
   return (
-    <div className="mt-20 px-4 md:px-8 lg:px-12">
-      <div className="flex h-[36rem] w-full  ">
+    <motion.div ref={sectionRef} className="mt-20 px-4 md:px-8 lg:px-12">
+      <div className="flex h-[36rem] w-full">
         {/* Title section */}
-        <div className="flex flex-col">
+        <motion.div
+          className="flex flex-col"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <p className="text-6xl md:text-7xl lg:text-8xl font-bold text-black/10 leading-none">
             Why
           </p>
           <p className="text-7xl md:text-8xl lg:text-9xl font-bold text-violet-900/70 leading-none">
             Me??
           </p>
-          <p className="mt-6 text-gray-600 max-w-md">
+          <motion.p
+            className="mt-6 text-gray-600 max-w-md"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             I bring a unique combination of technical expertise, creative
             thinking, and business understanding to every project.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Cards section */}
         <div className="flex-1 mt-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {cardData.map((card, index) => (
-              <FlipCard key={index} card={card} index={index} />
+              <FlipCard
+                key={index}
+                card={card}
+                index={index}
+                isInView={isInView}
+              />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -63,7 +81,13 @@ interface Card {
   content: string;
 }
 
-const FlipCard = ({ card, index }: { card: Card; index: number }) => {
+interface FlipCardProps {
+  card: Card;
+  index: number;
+  isInView: boolean;
+}
+
+const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -71,11 +95,18 @@ const FlipCard = ({ card, index }: { card: Card; index: number }) => {
   };
 
   return (
-    <div
+    <motion.div
       className="h-80 md:h-96 w-full perspective-1000 cursor-pointer"
       onMouseEnter={handleFlip}
       onMouseLeave={handleFlip}
       onTouchStart={handleFlip}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{
+        duration: 0.7,
+        delay: 0.2 + index * 0.15,
+        ease: "easeOut",
+      }}
     >
       <motion.div
         className="relative w-full h-full"
@@ -91,13 +122,22 @@ const FlipCard = ({ card, index }: { card: Card; index: number }) => {
           }`}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="text-violet-900 mb-4">
+          <motion.div
+            className="text-violet-900 mb-4"
+            whileHover={{ rotate: 360, scale: 1.2 }}
+            transition={{ duration: 0.5 }}
+          >
             <Icon icon={card.icon} width="40" height="40" />
-          </div>
+          </motion.div>
           <h3 className="text-xl font-bold text-center text-gray-800">
             {card.title}
           </h3>
-          <div className="mt-4 w-16 h-1 bg-violet-900 rounded-full"></div>
+          <motion.div
+            className="mt-4 w-16 h-1 bg-violet-900 rounded-full"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: "4rem" } : { width: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+          ></motion.div>
           <div className="mt-4 text-sm text-gray-500 text-center">
             Hover to learn more
           </div>
@@ -112,8 +152,8 @@ const FlipCard = ({ card, index }: { card: Card; index: number }) => {
           <p className="text-center text-white/90">{card.content}</p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
-export default AboutSection;
+export default AboutSection2;

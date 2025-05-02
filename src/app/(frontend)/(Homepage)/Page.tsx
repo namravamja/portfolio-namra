@@ -1,11 +1,13 @@
 import React from "react";
-import Herosection from "./Herosection/page";
+import Herosection from "./components/Herosection";
 import InfiniteScroll from "./HomepageSection1/InfiniteScroll";
+import HomepageSection1 from "./components/HomepageSection1";
 
 function Homepage() {
   return (
     <div>
       <Herosection />
+      <HomepageSection1 />
     </div>
   );
 }
