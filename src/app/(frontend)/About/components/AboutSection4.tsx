@@ -86,7 +86,7 @@ function EducationTimeline() {
         </div>
         <div className="flex-1 w-full mt-10">
           <div className="relative h-full">
-            <div className="space-y-8 w-full md:w-full lg:w-3/4 relative py-4 ml-5 md:ml-20 lg:ml-60">
+            <div className="space-y-8 md:w-full lg:w-3/4 relative py-4 ml-5 md:ml-20 lg:ml-5">
               <motion.div
                 className="absolute left-0 top-6 w-0.5 bg-violet-800 rounded-full origin-top"
                 initial={{ height: 0 }}
@@ -137,7 +137,7 @@ function EducationTimeline() {
                         animate={isInView ? { scale: 1 } : { scale: 0.8 }}
                         transition={{ duration: 0.4, delay: 1 + index * 0.2 }}
                       >
-                        <span className="text-violet-700 font-medium text-sm">
+                        <span className="text-violet-700 font-medium text-xs">
                           {item.score}
                         </span>
                       </motion.div>

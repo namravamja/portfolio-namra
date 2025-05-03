@@ -18,7 +18,9 @@ const Herosection: React.FC = () => {
                 cursorClassName="mt-1 sm:mt-2 lg:mt-3"
               />
             </div>
-            <span className="pl-7 sm:pl-10 md:pl-16 lg:pl-20">Developer</span>
+            <span className="text-6xl sm:text-7xl md:text-9xl lg:text-9xl xl:text-9xl pl-14 sm:pl-10 md:pl-16 lg:pl-20">
+              Developer
+            </span>
           </h1>
         </div>
         <div className="flex-1 relative">
