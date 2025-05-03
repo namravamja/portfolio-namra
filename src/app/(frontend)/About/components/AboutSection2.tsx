@@ -10,13 +10,14 @@ const cardData: Card[] = [
     title: "Skills and Expertise",
     icon: "mdi:code-tags",
     content:
-      "Proficient in modern web technologies including React, Next.js, and TypeScript. Experienced in building responsive, accessible, and performant web applications with clean, maintainable code.",
+      "Experienced in building fast, scalable web apps with React, Next.js, and TypeScript. Skilled in creating responsive UIs using Tailwind CSS, managing state with Redux and RTK Query, and integrating APIs. I focus on performance optimization, SEO, and clean, maintainable code across full-stack solutions.",
   },
+
   {
     title: "Results and Impact",
     icon: "mdi:chart-bar",
     content:
-      "Delivered projects that increased user engagement by 40% and reduced load times by 60%. Created solutions that directly impacted business goals and improved customer satisfaction metrics.",
+      "Delivered projects that significantly increased user engagement and reduced load times. Created solutions that aligned with business goals, driving customer satisfaction and improving overall performance.",
   },
   {
     title: "Passion and Approach",

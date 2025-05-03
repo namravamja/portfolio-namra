@@ -39,22 +39,19 @@ function AboutSection1() {
               <div className="text-black/70 text-sm sm:text-base md:text-lg space-y-2 sm:space-y-3">
                 <p className="leading-relaxed">
                   <span className="text-black font-medium">
-                    Full Stack Developer
+                    A self taught Human being ,
                   </span>{" "}
-                  passionate about crafting clean, intuitive web experiences.
+                  Who thrives on curiosity and continuous growth.
                 </p>
 
                 <p className="leading-relaxed">
-                  My tech stack includes{" "}
-                  <span className="text-black">React, Next.js</span> on the
-                  frontend with{" "}
-                  <span className="text-black">Node.js, Express</span> powering
-                  the backend.
+                  Loves to be a part of the process that involves crafting
+                  something meaningful, purposeful, and impactful from the
+                  ground up.
                 </p>
 
                 <p className="leading-relaxed">
-                  I transform complex problems into elegant solutions through
-                  code, constantly exploring new technologies to stay ahead.
+                  Wants to understand others perspective.
                 </p>
 
                 <div className="hidden xs:block sm:block pt-1 sm:pt-2">
