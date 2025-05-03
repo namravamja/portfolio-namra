@@ -19,35 +19,35 @@ export const defaultSocialLinks: SocialLink[] = [
   {
     name: "GitHub",
     url: "https://github.com/yourusername",
-    icon: <Icon icon="mdi:github" className="h-6 w-6" />,
+    icon: <Icon icon="logos:github-icon" className="h-6 w-6" />,
     color: "hover:text-gray-800 hover:bg-gray-100",
     hoverEmoji: "💻",
   },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/yourusername",
-    icon: <Icon icon="mdi:linkedin" className="h-6 w-6" />,
+    icon: <Icon icon="skill-icons:linkedin" className="h-6 w-6" />,
     color: "hover:text-blue-600 hover:bg-blue-50",
     hoverEmoji: "🔗",
   },
   {
     name: "Instagram",
     url: "https://instagram.com/yourusername",
-    icon: <Icon icon="mdi:instagram" className="h-6 w-6" />,
+    icon: <Icon icon="skill-icons:instagram" className="h-6 w-6" />,
     color: "hover:text-pink-600 hover:bg-pink-50",
     hoverEmoji: "📸",
   },
   {
     name: "Twitter",
     url: "https://twitter.com/yourusername",
-    icon: <Icon icon="mdi:twitter" className="h-6 w-6" />,
+    icon: <Icon icon="logos:twitter" className="h-6 w-6" />,
     color: "hover:text-blue-400 hover:bg-blue-50",
     hoverEmoji: "🐦",
   },
 ];
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ 
-  links = defaultSocialLinks 
+const SocialLinks: React.FC<SocialLinksProps> = ({
+  links = defaultSocialLinks,
 }) => {
   return (
     <div className="flex flex-wrap gap-4">
