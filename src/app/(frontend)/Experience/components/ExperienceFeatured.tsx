@@ -1,6 +1,28 @@
 "use client";
 
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
+
+// Define the types for the props and the experience data
+interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  color: string;
+  icon: ReactNode;
+  highlight: string;
+  description: string;
+  skills: string[];
+}
+
+interface ExperienceFeaturedProps {
+  experiences: Experience[];
+  activeExperience: string;
+  opacity: number;
+  y: number;
+  renderIcon: (icon: ReactNode) => ReactNode;
+}
 
 const ExperienceFeatured = ({
   experiences,
@@ -8,12 +30,12 @@ const ExperienceFeatured = ({
   opacity,
   y,
   renderIcon,
-}: any) => (
+}: ExperienceFeaturedProps) => (
   <motion.div
     style={{ opacity, y }}
     className="container mx-auto px-4 md:px-8 py-8"
   >
-    {experiences.map((experience: any) => (
+    {experiences.map((experience) => (
       <motion.div
         key={experience.id}
         initial={{ opacity: 0, y: 20 }}
@@ -39,11 +61,11 @@ const ExperienceFeatured = ({
             <p className="text-purple-600">{experience.company}</p>
             <p className="text-sm text-gray-500">{experience.period}</p>
             <div className="mt-4 bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-lg border-l-4 border-pink-300 italic">
-              "{experience.highlight}"
+              &quot;{experience.highlight}&quot;
             </div>
             <p className="mt-4 text-gray-700">{experience.description}</p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {experience.skills.map((skill: string, i: number) => (
+              {experience.skills.map((skill, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, scale: 0.8 }}

@@ -19,9 +19,9 @@ const ExperienceSection1 = () => {
               cursorClassName="mt-1 sm:mt-2 lg:mt-3"
             />
           </h1>
-          <p className="text-xl text-black/70 md:text-2xl text-center max-w-2xl mb-6">
+          <p className="text-xl text-black&#47;70 md:text-2xl text-center max-w-2xl mb-6">
             Discover my professional journey, highlighting the skills, roles,
-            and impactful contributions I've made along the way.
+            and impactful contributions I&apos;ve made along the way.
           </p>
         </div>
       </div>

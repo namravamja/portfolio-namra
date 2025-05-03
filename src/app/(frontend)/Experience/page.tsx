@@ -11,55 +11,68 @@ import ExperienceFeatured from "./components/ExperienceFeatured";
 import ExperienceGrid from "./components/ExperienceGrid";
 import ExperienceMobileNext from "./components/ExperienceMobileNext";
 
-const experiences = [
+// Unified Experience type
+interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  skills: string[];
+  icon: React.ReactNode;
+  color: string;
+  highlight: string;
+}
+
+const experiences: Experience[] = [
   {
-    id: 1,
+    id: "1",
     title: "Senior Frontend Developer",
     company: "Tech Innovations Inc.",
     period: "2021 - Present",
     description: "Led the development...",
     skills: ["React", "Next.js"],
-    icon: Code,
+    icon: <Code />,
     color: "bg-pink-100 text-pink-600",
     highlight: "Reduced load times by 40%",
   },
   {
-    id: 2,
+    id: "2",
     title: "Full Stack Developer",
     company: "Digital Solutions Ltd.",
     period: "2018 - 2021",
     description: "Developed full-stack...",
     skills: ["Node.js", "React"],
-    icon: Building,
+    icon: <Building />,
     color: "bg-purple-100 text-purple-600",
     highlight: "API serving 1M+ requests",
   },
   {
-    id: 3,
+    id: "3",
     title: "Frontend Developer",
     company: "Creative Web Agency",
     period: "2016 - 2018",
     description: "Created responsive UIs...",
     skills: ["HTML", "CSS"],
-    icon: Award,
+    icon: <Award />,
     color: "bg-indigo-100 text-indigo-600",
     highlight: "30+ websites delivered",
   },
   {
-    id: 4,
+    id: "4",
     title: "Web Development Intern",
     company: "StartUp Ventures",
     period: "2015 - 2016",
     description: "Assisted with bugs...",
     skills: ["JavaScript", "WordPress"],
-    icon: Clock,
+    icon: <Clock />,
     color: "bg-blue-100 text-blue-600",
     highlight: "Reduced error rates by 35%",
   },
 ];
 
 const Page = () => {
-  const [activeExperience, setActiveExperience] = useState(1);
+  const [activeExperience, setActiveExperience] = useState<string>("1");
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -70,14 +83,18 @@ const Page = () => {
   const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [60, 0, 0, -60]);
 
   const handlePrevious = () => {
-    setActiveExperience((prev) => (prev === 1 ? experiences.length : prev - 1));
+    setActiveExperience((prev) =>
+      prev === "1" ? String(experiences.length) : String(Number(prev) - 1)
+    );
   };
 
   const handleNext = () => {
-    setActiveExperience((prev) => (prev === experiences.length ? 1 : prev + 1));
+    setActiveExperience((prev) =>
+      prev === String(experiences.length) ? "1" : String(Number(prev) + 1)
+    );
   };
 
-  const renderIcon = (Icon: any) => <Icon size={24} />;
+  const renderIcon = (Icon: React.ReactNode) => <>{Icon}</>;
 
   return (
     <div className="relative overflow-hidden min-h-screen" ref={containerRef}>
@@ -102,8 +119,8 @@ const Page = () => {
       <ExperienceFeatured
         experiences={experiences}
         activeExperience={activeExperience}
-        opacity={opacity}
-        y={y}
+        opacity={opacity.get()}
+        y={y.get()}
         renderIcon={renderIcon}
       />
       <ExperienceGrid experiences={experiences} renderIcon={renderIcon} />

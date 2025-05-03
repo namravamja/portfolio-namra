@@ -1,3 +1,4 @@
+import Image from "next/image";
 import TypewriterEffect from "../../../../components/TypewriterEffect";
 
 const Herosection: React.FC = () => {
@@ -25,9 +26,10 @@ const Herosection: React.FC = () => {
         </div>
         <div className="flex-1 relative">
           <div className="flex flex-col h-full w-full relative z-10">
-            <img
+            <Image
               src="/photoo.png"
               alt="Portrait of Namra"
+              fill
               className="object-cover opacity-90"
             />
           </div>

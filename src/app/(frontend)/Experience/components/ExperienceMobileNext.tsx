@@ -2,7 +2,12 @@
 
 import { ChevronRight } from "lucide-react";
 
-const ExperienceMobileNext = ({ handleNext }: any) => (
+// Define the props type for the component
+interface ExperienceMobileNextProps {
+  handleNext: () => void;
+}
+
+const ExperienceMobileNext = ({ handleNext }: ExperienceMobileNextProps) => (
   <div className="md:hidden container mx-auto px-4 py-6">
     <div className="flex justify-center">
       <button

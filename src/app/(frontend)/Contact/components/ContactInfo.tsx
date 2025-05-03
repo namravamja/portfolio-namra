@@ -4,15 +4,7 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import SocialLinks from "./SocialLinks";
 
-interface ContactInfoProps {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
-
-const ContactInfo: React.FC<ContactInfoProps> = ({
-  onMouseEnter,
-  onMouseLeave,
-}) => {
+const ContactInfo = () => {
   return (
     <motion.div
       variants={{
@@ -28,11 +20,9 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
         },
       }}
       className="bg-white/70 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/50 flex flex-col justify-between transform-gpu transition-all duration-300"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-        <span>Let's Collaborate</span>
+        <span>Let&apos;s Collaborate</span>
         <motion.span
           initial={{ rotate: -10 }}
           animate={{ rotate: 10 }}

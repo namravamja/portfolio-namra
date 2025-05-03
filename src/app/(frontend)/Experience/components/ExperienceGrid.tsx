@@ -1,11 +1,30 @@
 "use client";
 
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-const ExperienceGrid = ({ experiences, renderIcon }: any) => (
+// Define types for the experience data and component props
+interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  color: string;
+  icon: ReactNode;
+  description: string;
+  highlight: string;
+  skills: string[];
+}
+
+interface ExperienceGridProps {
+  experiences: Experience[];
+  renderIcon: (icon: ReactNode) => ReactNode;
+}
+
+const ExperienceGrid = ({ experiences, renderIcon }: ExperienceGridProps) => (
   <div className="hidden md:block container mx-auto px-4 md:px-8 py-16 md:py-24">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {experiences.map((experience: any, index: number) => (
+      {experiences.map((experience, index) => (
         <motion.div
           key={experience.id}
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +51,7 @@ const ExperienceGrid = ({ experiences, renderIcon }: any) => (
             {experience.highlight}
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
-            {experience.skills.map((skill: string, i: number) => (
+            {experience.skills.map((skill, i) => (
               <span
                 key={i}
                 className="px-3 py-1 bg-gray-100 rounded-full text-sm"

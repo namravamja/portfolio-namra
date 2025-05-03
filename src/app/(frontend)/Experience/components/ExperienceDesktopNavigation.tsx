@@ -1,15 +1,31 @@
 "use client";
 
+import { ReactNode } from "react";
+
+interface Experience {
+  id: string;
+  period: string;
+  color: string;
+  icon: ReactNode;
+}
+
+interface ExperienceDesktopNavigationProps {
+  experiences: Experience[];
+  activeExperience: string;
+  setActiveExperience: (id: string) => void;
+  renderIcon: (icon: ReactNode) => ReactNode;
+}
+
 const ExperienceDesktopNavigation = ({
   experiences,
   activeExperience,
   setActiveExperience,
   renderIcon,
-}: any) => (
-  <div className="hidden md:block container mx-auto px-4 md:px-8 py-12 ">
+}: ExperienceDesktopNavigationProps) => (
+  <div className="hidden md:block container mx-auto px-4 md:px-8 py-12">
     <div className="flex overflow-x-auto pb-4 hide-scrollbar">
       <div className="flex space-x-1 md:space-x-2 mx-auto">
-        {experiences.map((exp: any) => (
+        {experiences.map((exp) => (
           <button
             key={exp.id}
             onClick={() => setActiveExperience(exp.id)}

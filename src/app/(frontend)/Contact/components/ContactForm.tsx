@@ -3,15 +3,7 @@
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
-interface ContactFormProps {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
-
-const ContactForm: React.FC<ContactFormProps> = ({
-  onMouseEnter,
-  onMouseLeave,
-}) => {
+const ContactForm = () => {
   return (
     <motion.div
       variants={{
@@ -27,8 +19,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         },
       }}
       className="bg-white/70 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-white/50 flex flex-col justify-between transform-gpu transition-all duration-300"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
         <span>Send a Message</span>

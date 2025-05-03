@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
   const [width, setWidth] = useState(0);
@@ -8,7 +8,6 @@ const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
   const motionValue = useRef(0);
   const animationRef = useRef<number | null>(null);
 
-  // Measure container width and update on resize
   useEffect(() => {
     const updateWidth = () => {
       if (scrollContainer.current) {
@@ -17,91 +16,64 @@ const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
     };
 
     updateWidth();
-
-    // Add resize listener for responsiveness
     window.addEventListener("resize", updateWidth);
-
-    return () => {
-      window.removeEventListener("resize", updateWidth);
-    };
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
-  // Custom animation function that maintains position when direction changes
-  const animateText = () => {
+  const animateText = useCallback(() => {
     if (!scrollContainer.current || width === 0) return;
 
-    // Update position based on direction - increased speed values
     if (scrollingDown) {
-      motionValue.current += 4.5; // Increased speed when scrolling down (left to right)
+      motionValue.current += 4.5;
     } else {
-      motionValue.current -= 4.5; // Increased speed when scrolling up (right to left)
+      motionValue.current -= 4.5;
     }
 
-    // Create infinite loop effect by resetting position when needed
     if (motionValue.current > 0) {
       motionValue.current = -width;
     } else if (motionValue.current < -width) {
       motionValue.current = 0;
     }
 
-    // Apply the transform
     if (scrollContainer.current) {
       scrollContainer.current.style.transform = `translateX(${motionValue.current}px)`;
     }
 
-    // Continue animation
     animationRef.current = requestAnimationFrame(animateText);
-  };
+  }, [scrollingDown, width]);
 
-  // Detect scroll direction
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current) {
-        // Scrolling down
-        if (!scrollingDown) {
-          setScrollingDown(true);
-        }
+        if (!scrollingDown) setScrollingDown(true);
       } else {
-        // Scrolling up
-        if (scrollingDown) {
-          setScrollingDown(false);
-        }
+        if (scrollingDown) setScrollingDown(false);
       }
 
       lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollingDown]);
 
-  // Start/stop animation
   useEffect(() => {
-    // Start animation
     animationRef.current = requestAnimationFrame(animateText);
-
-    // Cleanup
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [scrollingDown, width]);
+  }, [animateText]);
 
   return (
     <div className="overflow-hidden whitespace-nowrap w-full">
       <div
         ref={scrollContainer}
         className="flex whitespace-nowrap"
-        style={{
-          display: "flex",
-          whiteSpace: "nowrap",
-        }}
+        style={{ display: "flex", whiteSpace: "nowrap" }}
       >
         {/* First copy */}
         <div className="flex">
@@ -115,7 +87,7 @@ const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
           ))}
         </div>
 
-        {/* Second copy for seamless looping */}
+        {/* Second copy */}
         <div className="flex">
           {Array.from({ length: 5 }).map((_, i) => (
             <span

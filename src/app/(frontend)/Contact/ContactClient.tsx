@@ -10,7 +10,7 @@ const Contact = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -157,8 +157,8 @@ const Contact = () => {
               />
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 text-center max-w-2xl mb-16">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions.
+              I&apos;m always open to discussing new projects, creative ideas,
+              or opportunities to be part of your visions.
             </p>
           </div>
 
@@ -177,7 +177,7 @@ const Contact = () => {
                 onMouseLeave={() => setIsHovering(false)}
               >
                 <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-                  <span>Let's Collaborate</span>
+                  <span>Let&apos;s Connect</span>
                   <motion.span
                     initial={{ rotate: -10 }}
                     animate={{ rotate: 10 }}
@@ -243,7 +243,7 @@ const Contact = () => {
                   </motion.div>
                 </h3>
                 <div className="flex flex-wrap gap-4">
-                  {socialLinks.map((link, index) => (
+                  {socialLinks.map((link) => (
                     <motion.a
                       key={link.name}
                       href={link.url}

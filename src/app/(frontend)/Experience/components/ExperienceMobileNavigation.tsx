@@ -2,14 +2,29 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+interface Experience {
+  id: string;
+  period: string;
+}
+
+interface ExperienceMobileNavigationProps {
+  activeExperience: string;
+  setActiveExperience: (id: string) => void;
+  experiences: Experience[];
+  handleNext: () => void;
+  handlePrevious: () => void;
+}
+
 const ExperienceMobileNavigation = ({
   activeExperience,
   setActiveExperience,
   experiences,
   handleNext,
   handlePrevious,
-}: any) => {
-  const activeExp = experiences.find((exp: any) => exp.id === activeExperience);
+}: ExperienceMobileNavigationProps) => {
+  const activeExp = experiences.find(
+    (exp) => exp.id === activeExperience
+  );
 
   return (
     <div className="md:hidden container mx-auto px-4 py-6">
@@ -37,7 +52,7 @@ const ExperienceMobileNavigation = ({
         </div>
 
         <div className="flex space-x-2 mb-6">
-          {experiences.map((exp: any) => (
+          {experiences.map((exp) => (
             <button
               key={exp.id}
               onClick={() => setActiveExperience(exp.id)}

@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { ArrowUpRight, Code2, ExternalLink, Layers } from "lucide-react";
 
 // Project type definition
@@ -16,7 +16,7 @@ interface Project {
 }
 
 const ProjectSection2: React.FC = () => {
-  // Projects array - you can add more projects here in the future
+  // Projects array
   const projects: Project[] = [
     {
       id: 1,
@@ -51,7 +51,7 @@ const ProjectSection2: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   // Animation variants for Framer Motion
-  const projectVariants = {
+  const projectVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
@@ -64,7 +64,7 @@ const ProjectSection2: React.FC = () => {
     },
   };
 
-  const techBadgeVariants = {
+  const techBadgeVariants: Variants = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: {
       scale: 1,
@@ -100,8 +100,8 @@ interface ProjectCardProps {
   project: Project;
   hoveredProject: number | null;
   setHoveredProject: React.Dispatch<React.SetStateAction<number | null>>;
-  projectVariants: any;
-  techBadgeVariants: any;
+  projectVariants: Variants;
+  techBadgeVariants: Variants;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -129,7 +129,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseEnter={() => setHoveredProject(project.id)}
       onMouseLeave={() => setHoveredProject(null)}
     >
-      <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-300 hover:shadow-xl hover:shadow-slate-200 hover:border-slate-300 hover:translate-y-[-4px]">
+      <div
+        className={`h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 transition-all duration-300 hover:shadow-xl hover:shadow-slate-200 hover:border-slate-300 hover:translate-y-[-4px] ${
+          hoveredProject === project.id ? "border-slate-500" : ""
+        }`}
+      >
         {/* Project Image */}
         <div className="relative h-56 overflow-hidden">
           <Image
