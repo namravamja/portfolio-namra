@@ -82,10 +82,7 @@ const Page = () => {
   return (
     <div className="relative overflow-hidden min-h-screen" ref={containerRef}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Decorative gradients */}
         <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-gradient-to-br from-pink-200/30 to-purple-300/20 blur-3xl" />
-        <div className="absolute top-1/3 -left-20 w-72 h-72 rounded-full bg-gradient-to-tr from-indigo-200/20 to-pink-200/30 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gradient-to-bl from-purple-100/30 to-pink-200/20 blur-3xl" />
       </div>
 
       <ExperienceSection1 />

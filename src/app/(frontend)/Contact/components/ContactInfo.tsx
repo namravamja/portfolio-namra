@@ -72,7 +72,9 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
           <motion.div className="bg-purple-100 p-2 rounded-full">
             <Icon icon="mdi:email-outline" className="h-6 w-6" />
           </motion.div>
-          <span>namravamja00@gmail.com</span>
+          <span className="text-xs sm:text-base md:text-base xl:text-base lg:text-2xl">
+            namravamja00@gmail.com
+          </span>
           <motion.span
             initial={{ opacity: 0, x: -10 }}
             className="text-xs bg-purple-100 rounded-full px-2 py-1 text-violet-900/70 ml-auto"

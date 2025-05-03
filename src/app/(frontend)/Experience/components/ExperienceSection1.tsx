@@ -7,7 +7,7 @@ const ExperienceSection1 = () => {
     <div className="relative py-20 md:py-32 bg-gradient-to-b from-[#d1a1c8]/80 via-[#f7c7ec]/40 to-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col items-center">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tight text-center">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tight text-center">
             <TypewriterEffect
               words={["Experiences"]}
               className="flex"
