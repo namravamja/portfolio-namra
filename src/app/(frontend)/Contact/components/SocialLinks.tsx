@@ -18,28 +18,28 @@ interface SocialLinksProps {
 export const defaultSocialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/namravamja",
     icon: <Icon icon="logos:github-icon" className="h-6 w-6" />,
     color: "hover:text-gray-800 hover:bg-gray-100",
     hoverEmoji: "💻",
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://linkedin.com/in/namra-vamja",
     icon: <Icon icon="skill-icons:linkedin" className="h-6 w-6" />,
     color: "hover:text-blue-600 hover:bg-blue-50",
     hoverEmoji: "🔗",
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/yourusername",
+    url: "https://instagram.com/namra_vamja_",
     icon: <Icon icon="skill-icons:instagram" className="h-6 w-6" />,
     color: "hover:text-pink-600 hover:bg-pink-50",
     hoverEmoji: "📸",
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/yourusername",
+    url: "https://twitter.com/namra_vamja",
     icon: <Icon icon="logos:twitter" className="h-6 w-6" />,
     color: "hover:text-blue-400 hover:bg-blue-50",
     hoverEmoji: "🐦",

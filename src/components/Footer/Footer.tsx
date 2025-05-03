@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3 sm:space-x-4 mt-1">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/namra_vamja_"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -38,7 +38,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://twitter.com/namra_vamja"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
@@ -49,7 +49,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/namravamja"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -60,7 +60,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/namra-vamja/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

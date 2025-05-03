@@ -23,20 +23,17 @@ export default function RouteTransitionProvider({
   const [showChildren, setShowChildren] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [direction, setDirection] = useState<"up" | "down">("up");
-
   const previousPath = useRef(pathname);
 
   useEffect(() => {
     const currentIndex = routeOrder.indexOf(pathname);
     const previousIndex = routeOrder.indexOf(previousPath.current);
 
-    if (currentIndex > previousIndex) {
-      setDirection("up");
-    } else {
-      setDirection("down");
-    }
-
+    setDirection(currentIndex > previousIndex ? "up" : "down");
     previousPath.current = pathname;
+
+    // Hide scrollbar
+    document.body.style.overflow = "hidden";
 
     setIsTransitioning(true);
     setShowChildren(false);
@@ -44,9 +41,14 @@ export default function RouteTransitionProvider({
     const timeout = setTimeout(() => {
       setIsTransitioning(false);
       setShowChildren(true);
+      // Restore scrollbar
+      document.body.style.overflow = "";
     }, 400);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      document.body.style.overflow = ""; // ensure scrollbar is reset
+    };
   }, [pathname]);
 
   return (
