@@ -146,7 +146,7 @@ const FlipCard = ({ card, index, isInView }: FlipCardProps) => {
           ></motion.div>
           <div className="mt-4 text-sm text-gray-500 text-center">
             <span className="hidden md:inline">Hover</span>
-            <span className="md:hidden">Tap</span> to learn more
+            <span className="md:hidden">Tap</span> to view more
           </div>
         </div>
 

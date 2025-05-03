@@ -67,7 +67,7 @@ function EducationTimeline() {
     <>
       <div
         ref={sectionRef}
-        className="flex mt-20 gap-10 h-full min-h-screen w-full flex-col md:flex-row"
+        className="flex mt-15 gap-10 h-full w-full flex-col md:flex-row"
       >
         <div className="flex w-full md:w-96">
           <motion.div
