@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import InfiniteScroll from "../HomepageSection1/InfiniteScroll";
+import InfiniteScroll from "./InfiniteScroll";
 import Link from "next/link";
 
 const HomepageSection1 = () => {

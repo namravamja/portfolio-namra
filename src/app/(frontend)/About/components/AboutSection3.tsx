@@ -100,7 +100,7 @@ const AboutSection3 = () => {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="absolute top-1/2 left-0 right-0 flex justify-between px-2 md:px-4 z-10 pointer-events-none">
+      <div className="absolute top-1/2 left-0 md:left-1/3 lg:left-1/4 right-0 flex justify-between px-2 md:px-4 z-10 pointer-events-none">
         <motion.button
           onClick={() => scroll("left")}
           className={`p-2 rounded-full bg-violet-900/30 backdrop-blur-sm shadow-md hover:bg-violet-900/20 transition-all duration-300 pointer-events-auto ${
@@ -130,7 +130,7 @@ const AboutSection3 = () => {
       <div className="flex-1 w-full mt-10 px-4 md:pr-10 md:pl-0 overflow-hidden">
         <div
           ref={scrollContainerRef}
-          className="overflow-x-auto pb-6 hide-scrollbar"
+          className="overflow-x-auto pb-6 scrollbar-none"
         >
           <div className="grid grid-flow-col grid-rows-3 auto-cols-max gap-4 min-w-max">
             {technologies.map((tech, index) => (

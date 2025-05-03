@@ -4,7 +4,6 @@ const Herosection: React.FC = () => {
   return (
     <>
       <div className="bg-gradient-to-b from-[#a18cd1]/80 via-[#fbc2eb]/40 backdrop-blur-md flex flex-col lg:flex-row min-h-[450px] h-auto lg:h-[650px] w-full">
-        {/* Left Section - Large Title */}
         <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-16 flex flex-col justify-center">
           <h1 className="flex flex-col text-7xl sm:text-9xl md:text-9xl lg:text-9xl xl:text-9xl mb-6 sm:mb-8 md:mb-12 lg:mb-16 lg:ml-16 font-light tracking-tighter text-black">
             <div className="flex">
@@ -19,29 +18,16 @@ const Herosection: React.FC = () => {
                 cursorClassName="mt-1 sm:mt-2 lg:mt-3"
               />
             </div>
-            <span className="pl-6 sm:pl-10 md:pl-16 lg:pl-20">Developer</span>
+            <span className="pl-7 sm:pl-10 md:pl-16 lg:pl-20">Developer</span>
           </h1>
         </div>
-        {/* Right Section - Image overlay on vertical text */}
         <div className="flex-1 relative">
-          {/* Image section overlaying the text with slight transparency */}
           <div className="flex flex-col h-full w-full relative z-10">
-            <div className=" bg-none bottom-0 w-[28rem] h-[32rem] mt-8">
-              <img
-                src="/photoo.png"
-                alt="Portrait of Namra"
-                className="object-cover opacity-90"
-              />
-            </div>
-            {/* Text overlay on bottom right */}
-            <div className="absolute bottom-5 right-8 text-right z-20">
-              <p className="flex flex-col text-base font-extralight">
-                <span className="font-bold">Namaste, I'm Namra, </span>
-                <span>A Full Stack Web Developer</span>
-                <span>Crafting Seamless & Scalable</span>
-                <span>Web Experiences with Modern Tech.</span>
-              </p>
-            </div>
+            <img
+              src="/photoo.png"
+              alt="Portrait of Namra"
+              className="object-cover opacity-90"
+            />
           </div>
         </div>
       </div>

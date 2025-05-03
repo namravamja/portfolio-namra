@@ -32,7 +32,7 @@ const ContactPage = () => {
       <div className="container relative z-10 mx-auto px-4 md:px-8">
         <div className="flex flex-col items-center">
           <div>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight text-center">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight text-center">
               <TypewriterEffect
                 words={["Let's Connect"]}
                 className="flex"

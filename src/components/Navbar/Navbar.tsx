@@ -289,7 +289,7 @@ const Navbar: React.FC = () => {
                   }}
                 >
                   <Link
-                    href="/contact"
+                    href="/Contact"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <button className="w-full transition-all duration-300 ease-in-out rounded-full px-8 py-3 font-semibold text-lg border-2 border-black bg-black text-white hover:bg-black/90">

@@ -108,7 +108,7 @@ const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={`first-${i}`}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl mx-2 sm:mx-3 md:mx-4 lg:mx-6 text-black whitespace-nowrap"
+              className="text-7xl xl:text-9xl mx-2 sm:mx-3 md:mx-4 lg:mx-6 text-black whitespace-nowrap"
             >
               {text}
             </span>
@@ -120,7 +120,7 @@ const InfiniteScroll: React.FC<{ text: string }> = ({ text }) => {
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={`second-${i}`}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl mx-2 sm:mx-3 md:mx-4 lg:mx-6 text-black-800 whitespace-nowrap"
+              className="text-7xl xl:text-9xl mx-2 sm:mx-3 md:mx-4 lg:mx-6 text-black-800 whitespace-nowrap"
             >
               {text}
             </span>
