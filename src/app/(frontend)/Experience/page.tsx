@@ -27,47 +27,25 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: "1",
-    title: "Senior Frontend Developer",
-    company: "Tech Innovations Inc.",
-    period: "2021 - Present",
+    title: "Frontend Developer Intern",
+    company: "Semicolon Solutions",
+    period: "2024",
     description: "Led the development...",
-    skills: ["React", "Next.js"],
+    skills: ["HTML", "CSS", "JS", "React", " Tailwind CSS"],
     icon: <Code />,
     color: "bg-pink-100 text-pink-600",
-    highlight: "Reduced load times by 40%",
+    highlight: "Learn React with API integration",
   },
   {
     id: "2",
-    title: "Full Stack Developer",
-    company: "Digital Solutions Ltd.",
-    period: "2018 - 2021",
-    description: "Developed full-stack...",
-    skills: ["Node.js", "React"],
+    title: "SSIP - Technical Team Member",
+    company: "In my college",
+    period: "2023 - 2024",
+    description: "Build and Deploy SSIP website & projects",
+    skills: ["Work with team", "Project Management"],
     icon: <Building />,
     color: "bg-purple-100 text-purple-600",
-    highlight: "API serving 1M+ requests",
-  },
-  {
-    id: "3",
-    title: "Frontend Developer",
-    company: "Creative Web Agency",
-    period: "2016 - 2018",
-    description: "Created responsive UIs...",
-    skills: ["HTML", "CSS"],
-    icon: <Award />,
-    color: "bg-indigo-100 text-indigo-600",
-    highlight: "30+ websites delivered",
-  },
-  {
-    id: "4",
-    title: "Web Development Intern",
-    company: "StartUp Ventures",
-    period: "2015 - 2016",
-    description: "Assisted with bugs...",
-    skills: ["JavaScript", "WordPress"],
-    icon: <Clock />,
-    color: "bg-blue-100 text-blue-600",
-    highlight: "Reduced error rates by 35%",
+    highlight: "Connect with new people",
   },
 ];
 
@@ -119,8 +97,8 @@ const Page = () => {
       <ExperienceFeatured
         experiences={experiences}
         activeExperience={activeExperience}
-        opacity={opacity.get()}
-        y={y.get()}
+        opacity={opacity}
+        y={y}
         renderIcon={renderIcon}
       />
       <ExperienceGrid experiences={experiences} renderIcon={renderIcon} />

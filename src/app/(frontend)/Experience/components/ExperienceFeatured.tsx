@@ -1,9 +1,8 @@
 "use client";
 
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, type MotionValue } from "framer-motion";
 
-// Define the types for the props and the experience data
 interface Experience {
   id: string;
   title: string;
@@ -19,8 +18,8 @@ interface Experience {
 interface ExperienceFeaturedProps {
   experiences: Experience[];
   activeExperience: string;
-  opacity: number;
-  y: number;
+  opacity: MotionValue<number>;
+  y: MotionValue<number>;
   renderIcon: (icon: ReactNode) => ReactNode;
 }
 

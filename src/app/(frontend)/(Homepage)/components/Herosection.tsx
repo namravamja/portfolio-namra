@@ -29,7 +29,8 @@ const Herosection: React.FC = () => {
             <Image
               src="/photoo.png"
               alt="Portrait of Namra"
-              fill
+              width={600}
+              height={600}
               className="object-cover opacity-90"
             />
           </div>
