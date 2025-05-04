@@ -29,7 +29,7 @@ const experiences: Experience[] = [
     id: "1",
     title: "Frontend Developer Intern",
     company: "Semicolon Solutions",
-    period: "2024",
+    period: "JUNE 2024",
     description: "Led the development...",
     skills: ["HTML", "CSS", "JS", "React", " Tailwind CSS"],
     icon: <Code />,

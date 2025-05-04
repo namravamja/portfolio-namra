@@ -2,7 +2,6 @@
 
 import { ChevronRight } from "lucide-react";
 
-// Define the props type for the component
 interface ExperienceMobileNextProps {
   handleNext: () => void;
 }

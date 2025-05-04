@@ -20,29 +20,38 @@ const ProjectSection2: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Red+ : Your Blood, On Demand",
       description:
-        "A full-featured online shopping platform with cart functionality and payment integration.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-      imageUrl: "/placeholder.svg?height=400&width=600",
+        "A blood management system which connects donors, seekers, event organizers, and blood banks with new features.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "RTK Query",
+        "MongoDB",
+        "Express",
+        "Node.js",
+        "Couldinary",
+      ],
+      imageUrl: "/project1.png",
       projectUrl: "https://example.com/project1",
     },
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "My Portfolio Website",
       description:
         "A personal portfolio website showcasing skills and projects with modern design.",
-      technologies: ["React", "Framer Motion", "Tailwind CSS"],
-      imageUrl: "/placeholder.svg?height=400&width=600",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      imageUrl: "/project2.png",
       projectUrl: "https://example.com/project2",
     },
     {
       id: 3,
-      title: "Task Management App",
+      title: "Multi Shop E-commerce Platform",
       description:
-        "A collaborative task management application with real-time updates.",
-      technologies: ["Next.js", "Firebase", "Tailwind CSS"],
-      imageUrl: "/placeholder.svg?height=400&width=600",
+        " A multi-vendor e-commerce platform with user-friendly interface",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      imageUrl: "/project3.png",
       projectUrl: "https://example.com/project3",
     },
   ];

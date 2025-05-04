@@ -3,7 +3,6 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-// Define types for the experience data and component props
 interface Experience {
   id: string;
   title: string;
