@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import PreloaderWrapper from "@/components/Loader/PreLoaderWrapper";
 import Navbar from "@/components/Navbar/Navbar";
@@ -16,6 +17,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["600", "800"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["500", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Namra Vamja | Portfolio",
   description: "New version of NAMRA",
@@ -29,7 +44,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${geistSans.variable}
+          ${geistMono.variable}
+          ${poppins.variable}
+          ${inter.variable}
+          antialiased
+        `}
+        style={{
+          fontFamily: "var(--font-poppins), var(--font-inter), sans-serif",
+        }}
       >
         <PreloaderWrapper>
           <RouteTransitionProvider>
