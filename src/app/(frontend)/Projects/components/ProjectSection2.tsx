@@ -43,7 +43,7 @@ const ProjectSection2: React.FC = () => {
         "A personal portfolio website showcasing skills and projects with modern design.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       imageUrl: "/project2.png",
-      projectUrl: "https://example.com/project2",
+      projectUrl: "namravamja.info",
     },
     {
       id: 3,
