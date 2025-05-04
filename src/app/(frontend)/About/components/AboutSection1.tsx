@@ -67,7 +67,7 @@ function AboutSection1() {
 
         <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 right-4 sm:right-6 md:right-8 lg:right-16">
           <a
-            href="/photoo.png"
+            href="/Namra-Resume.pdf"
             download="NamraResume.pdf"
             target="_blank"
             rel="noopener noreferrer"
