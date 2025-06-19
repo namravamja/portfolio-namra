@@ -20,6 +20,25 @@ const ProjectSection2: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "Aadivaa — Handcrafted With Heritage",
+      description:
+        "Explore beautifully handcrafted creations by indigenous artisans. Aadivaa connects you with timeless tribal artistry—shop ethically, support communities, and celebrate culture.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "RTK Query",
+        "Prisma ORM",
+        "PostgreSQL (Neon DB)",
+        "Express",
+        "Node.js",
+        "Multer & Cloudinary",
+      ],
+      imageUrl: "/project3.png",
+      projectUrl: "https://www.aadivaa.shop/",
+    },
+    {
+      id: 3,
       title: "Red+ : Your Blood, On Demand",
       description:
         "A blood management system which connects donors, seekers, event organizers, and blood banks with new features.",
@@ -34,7 +53,7 @@ const ProjectSection2: React.FC = () => {
         "Couldinary",
       ],
       imageUrl: "/project1.png",
-      projectUrl: "https://example.com/project1",
+      projectUrl: "https://redpluse.vercel.app/",
     },
     {
       id: 2,
@@ -43,16 +62,7 @@ const ProjectSection2: React.FC = () => {
         "A personal portfolio website showcasing skills and projects with modern design.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       imageUrl: "/project2.png",
-      projectUrl: "namravamja.info",
-    },
-    {
-      id: 3,
-      title: "Multi Shop E-commerce Platform",
-      description:
-        " A multi-vendor e-commerce platform with user-friendly interface",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      imageUrl: "/project3.png",
-      projectUrl: "https://example.com/project3",
+      projectUrl: "https://www.namravamja.info/",
     },
   ];
 
