@@ -23,6 +23,7 @@ interface NavLinkProps {
   isActive: boolean;
   isMobile?: boolean;
   onClick?: () => void;
+  isExternal?: boolean;
 }
 
 interface CursorProps {
@@ -40,56 +41,75 @@ const NavLink: React.FC<NavLinkProps> = ({
   isActive,
   isMobile = false,
   onClick,
+  isExternal = false,
 }) => {
   const ref = useRef<HTMLLIElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
+  const linkContent = (
+    <motion.li
+      ref={ref}
+      onMouseEnter={() => {
+        if (isMobile) return;
+        setIsHovered(true);
+        if (!ref?.current) return;
+        const { width } = ref.current.getBoundingClientRect();
+        setPosition({
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
+      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-sm font-semibold lg:px-4 lg:py-2 
+      ${isActive ? "font-bold" : ""}
+      ${isMobile ? "w-full py-4 text-base" : ""}
+      `}
+      whileHover={isMobile ? { x: 5 } : undefined}
+      whileTap={{ scale: 0.98 }}
+    >
+      <span
+        className={
+          isHovered && !isMobile
+            ? "text-white mix-blend-difference transition-colors duration-150"
+            : isMobile && isActive
+            ? "text-[#6D28D9] font-bold"
+            : isActive
+            ? "text-[#6D28D9] font-blod transition-colors duration-150"
+            : "text-black transition-colors duration-150"
+        }
+      >
+        {children}
+      </span>
+      {isMobile && isActive && (
+        <motion.div
+          layoutId="activeIndicator"
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-purple-600 rounded-full"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+    </motion.li>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className="block"
+      >
+        {linkContent}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} onClick={onClick} className="block">
-      <motion.li
-        ref={ref}
-        onMouseEnter={() => {
-          if (isMobile) return;
-          setIsHovered(true);
-          if (!ref?.current) return;
-          const { width } = ref.current.getBoundingClientRect();
-          setPosition({
-            left: ref.current.offsetLeft,
-            width,
-            opacity: 1,
-          });
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false);
-        }}
-        className={`relative z-10 block cursor-pointer px-3 py-1.5 text-sm font-semibold lg:px-4 lg:py-2 
-        ${isActive ? "font-bold" : ""}
-        ${isMobile ? "w-full py-4 text-base" : ""}
-        `}
-        whileHover={isMobile ? { x: 5 } : undefined}
-        whileTap={{ scale: 0.98 }}
-      >
-        <span
-          className={
-            isHovered && !isMobile
-              ? "text-white mix-blend-difference transition-colors duration-150"
-              : isMobile && isActive
-              ? "text-[#6D28D9] font-bold"
-              : isActive
-              ? "text-[#6D28D9] font-blod transition-colors duration-150"
-              : "text-black transition-colors duration-150"
-          }
-        >
-          {children}
-        </span>
-        {isMobile && isActive && (
-          <motion.div
-            layoutId="activeIndicator"
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-purple-600 rounded-full"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-      </motion.li>
+      {linkContent}
     </Link>
   );
 };
@@ -127,11 +147,11 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/About", label: "ABOUT ME" },
-    { href: "/Projects", label: "PROJECTS" },
-    { href: "/Experience", label: "EXPERIENCE" },
-    { href: "Blog", label: "BLOG" },
+    { href: "/", label: "HOME", isExternal: false },
+    { href: "/About", label: "ABOUT ME", isExternal: false },
+    { href: "/Projects", label: "PROJECTS", isExternal: false },
+    { href: "/Experience", label: "EXPERIENCE", isExternal: false },
+    { href: "https://thinkkme.vercel.app/", label: "BLOG", isExternal: true },
   ];
 
   if (!mounted) {
@@ -194,6 +214,7 @@ const Navbar: React.FC = () => {
                     href={link.href}
                     setPosition={setPosition}
                     isActive={pathname === link.href}
+                    isExternal={link.isExternal}
                   >
                     {link.label}
                   </NavLink>
@@ -271,6 +292,7 @@ const Navbar: React.FC = () => {
                         isActive={pathname === link.href}
                         isMobile={true}
                         onClick={() => setMobileMenuOpen(false)}
+                        isExternal={link.isExternal}
                       >
                         {link.label}
                       </NavLink>

@@ -39,6 +39,32 @@ const ProjectSection2: React.FC = () => {
     },
     {
       id: 3,
+      title: "ThinkMe – Blog Platform",
+      description:
+        "A modern full-stack blog platform focused on performance, clean UI, and an intuitive writing experience.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Redux Toolkit (RTK)",
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "SQLAlchemy",
+        "Alembic",
+        "bcrypt",
+        "Cloudinary",
+        "Docker",
+        "PostgreSQL",
+        "pgAdmin",
+        "AWS EC2",
+        "NGINX",
+      ],
+      imageUrl: "/project4.png",
+      projectUrl: "https://thinkkme.vercel.app/",
+    },
+    {
+      id: 4,
       title: "Red+ : Your Blood, On Demand",
       description:
         "A blood management system which connects donors, seekers, event organizers, and blood banks with new features.",
@@ -98,7 +124,7 @@ const ProjectSection2: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 md:px-8 py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
@@ -154,32 +180,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         }`}
       >
         {/* Project Image */}
-        <div className="relative h-56 overflow-hidden">
-          <Image
-            src={project.imageUrl || "/placeholder.svg"}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <Link
+          href={project.projectUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="relative h-96 overflow-hidden cursor-pointer">
+            <Image
+              src={project.imageUrl || "/placeholder.svg"}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
 
-          {/* View project button that appears on hover */}
-          <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-            <Link
-              href={project.projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* "Check it Live" text that appears on hover at center */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
               <motion.div
-                className="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg"
-                whileHover={{ scale: 1.1 }}
+                className="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ArrowUpRight className="w-5 h-5 text-slate-900" />
+                <span className="text-slate-900 font-medium">
+                  Check it Live
+                </span>
+                <ArrowUpRight className="w-4 h-4 text-slate-900" />
               </motion.div>
-            </Link>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Project Info */}
         <div className="flex flex-col flex-grow p-6">
